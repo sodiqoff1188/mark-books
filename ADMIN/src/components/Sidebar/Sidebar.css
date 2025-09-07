@@ -1,0 +1,57 @@
+.sidebar {
+  width: 250px;
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  height: 100vh;
+  padding: 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ecf0f1;
+  margin: 0;
+}
+
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin-bottom: 10px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+  color: #ecf0f1;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: 500;
+}
+
+/* Sidebar tugmalari uchun hover effekti */
+.sidebar-link:hover {
+  background-color: #34495e;
+  transform: translateX(5px);
+}
+
+/* Faol tugma stili (React Router bilan ishlatish uchun) */
+.sidebar-link.active {
+  background-color: #3498db;
+  color: #fff;
+}
