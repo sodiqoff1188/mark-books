@@ -1,0 +1,126 @@
+/* StatCard.css (Ideal versiya) */
+
+/* O'zgaruvchilar: Ranglar va o'lchamlarni markazlashgan holda boshqarish uchun.
+  Keyinchalik bitta joydan o'zgartirsa bo'ladi.
+*/
+:root {
+    --primary-color: #F3794D;    /* Asosiy to'q sariq rang */
+    --text-dark-blue: #0A2351;  /* To'q ko'k matn rangi */
+    --text-gray: #555;          /* Kulrang matn rangi */
+    --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Universal qoida: Padding va border elementning umumiy o'lchamiga ta'sir qilmaydi.
+  */
+  * {
+    box-sizing: border-box;
+  }
+  
+ /* StatCardlarni yonma-yon qilish uchun */
+.stats-wrapper {
+    display: flex;
+    justify-content: center;   /* markazga tekislash */
+    align-items: stretch;
+    gap: 30px;                 /* kartalar orasidagi bo‘shliq */
+    flex-wrap: wrap;           /* kichik ekranlarda pastga tushadi */
+    margin-top: 40px;
+  }
+  
+  
+  /* Sichqoncha ustiga borganda interaktivlik qo'shish */
+  .stat-card:hover {
+    transform: translateY(-8px); /* Biroz yuqoriga ko'tariladi */
+    box-shadow: var(--card-hover-shadow); /* Soya paydo bo'ladi */
+  }
+  
+  .icon-container {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Hover bo‘lganda border aylanadi */
+  .stat-card:hover .icon-container {
+    border-radius: 50%;
+
+    animation: spin 2s linear infinite;
+  }
+  
+  .stat-card:hover .icon-container svg {
+    animation: spinReverse 2s linear infinite;
+  }
+  
+  .icon-container svg {
+    font-size: 50px;
+    color: var(--primary-color);
+  }
+  
+  /* Border aylanishi */
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Icon joyida turishi uchun teskari aylanish */
+  @keyframes spinReverse {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+  
+  
+  .icon-container svg {
+    font-size: 50px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease; /* Iconka uchun ham silliqlik */
+  }
+  
+  .stat-card:hover .icon-container svg {
+    transform: scale(1.1); /* Iconka biroz kattalashadi */
+  }
+  
+  .stat-number {
+    font-size: 36px;
+    font-weight: 700; /* Qalinroq shrift */
+    color: var(--text-dark-blue);
+    margin: 0;
+  }
+  
+  .stat-label {
+    font-size: 16px;
+    color: var(--text-gray);
+    margin-top: 8px;
+    text-transform: uppercase; /* Harflarni kattaroq qilish */
+    letter-spacing: 0.5px;   /* Harflar orasida joy */
+  }
+  
+  /* Mobil qurilmalar uchun (Responsivlik) */
+  @media (max-width: 768px) {
+    .icon-container {
+      width: 100px;
+      height: 100px;
+    }
+  
+    .icon-container svg {
+      font-size: 40px;
+    }
+  
+    .stat-number {
+      font-size: 30px;
+    }
+  
+    .stat-label {
+      font-size: 14px;
+    }
+  }

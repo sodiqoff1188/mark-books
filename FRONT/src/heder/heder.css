@@ -1,0 +1,140 @@
+/* Umumiy reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.heder{
+  width: 100%;
+  background: #fff;
+  padding: 15px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.heder h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+}
+
+.heder h2 span {
+  color: #ff4c29; /* Logoning highlight rangi */
+}
+
+.heder p {
+  font-size: 14px;
+  color: #555;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.search-bar select {
+  padding: 15px;
+  border: none;
+  outline: none;
+  background: #f9f9f9;
+  font-size: 14px;
+  color: #555;
+}
+
+.search-bar input {
+  background: #f9f9f9;
+
+  width: 500px;   /* kengligi */
+  height: 50px;   /* balandligi */
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-btn {
+  border: none;
+  padding: 0 20px;
+  height: 50px;   /* input bilan bir balandlikda */
+  cursor: pointer;
+  background: #f9f9f9;
+font-size: 17px;
+color: #626262;
+
+display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+
+.search-btn:hover {
+  color: #383838;
+
+  background: #f9f9f9;
+}
+
+
+
+/* Icons */
+.icons {
+
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.icon {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+  color: #fa0000;
+}
+
+.icon span {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: #ff4c29;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 50%;
+  padding: 2px 6px;
+}
+
+.profile {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Responsivlik */
+@media (max-width: 768px) {
+  .search-bar {
+    display: none; /* Telefonlarda search bar yashiriladi */
+  }
+
+  .header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}

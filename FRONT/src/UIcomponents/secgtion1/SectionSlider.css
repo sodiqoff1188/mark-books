@@ -1,0 +1,223 @@
+/* src/components/SectionSlider.css */
+
+.slider-wrapper {
+    width: 98%;
+    margin: 40px auto;
+}
+
+/* Sarlavha, tugmalar va nuqtachalarni bitta qatorga joylash */
+.slider-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+
+.slider-header-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: rgb(2, 2, 78);
+    margin: 0;
+}
+
+.slider-loading,
+.no-products {
+    text-align: center;
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+/* Boshqaruv elementlari uchun umumiy konteyner */
+.slider-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Tugmalar stili */
+.slider-arrow-button {
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    padding: 0;
+    color: #3498db;
+}
+
+.slider-arrow-button:hover {
+    background-color: #f1f1f1;
+}
+
+.slider-arrow-button svg {
+    font-size: 18px;
+}
+
+/* Asosiy mahsulotlar slayderi */
+.product-slider {
+    position: relative;
+
+}
+
+.product-slider .slick-list {
+    padding: 20px 0 !important;
+}
+
+.product-slider .slick-slide>div {
+    padding: 0 10px;
+    /* Kartochkalar orasidagi bo'shliq */
+}
+
+/* Nuqtachalar uchun "ko'rinmas" slayder */
+.hidden-slider {
+    width: auto;
+    flex-grow: 1;
+    /* Tugmalar orasidagi bo'shliqni egallaydi */
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    /* Slayderning o'zini ko'rinmas qilamiz */
+    height: 20px;
+}
+
+
+/* Mahsulot kartochkasi stili */
+.product-card-container {
+    padding: 0 10px;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+}
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-discount {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: rgb(0, 0, 80);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+
+.product-discount:hover{
+    box-shadow: 0px 1px 10px rgb(0, 26, 255);
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.product-category {
+    font-size: 14px;
+    color: rgb(1, 1, 68);
+    margin-bottom: 10px;
+    transition: all 1s;
+}
+
+.product-category:hover {
+    color: darkgray;
+    margin-bottom: 10px;
+}
+
+.card-content h3 {
+    color: rgb(0, 0, 66);
+    transition: all 1s;
+}
+
+.card-content h3:hover {
+    color: rgb(231, 62, 1);
+    filter: drop-shadow(0px 4px 5px rgb(249, 152, 120));
+}
+
+
+.product-rating {
+    color: gold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.product-rating svg {
+    font-size: 16px;
+    margin-right: 2px;
+}
+
+.product-rating span {
+    color: #7f8c8d;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+.product-prices {
+    margin-top: auto;
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+}
+
+.product-rating-and-prices{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 14px 0;
+}
+
+.old-price {
+    font-size: 16px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.new-price {
+    font-size: 28px;
+    font-weight: 700;
+    color: #05294e;
+}
