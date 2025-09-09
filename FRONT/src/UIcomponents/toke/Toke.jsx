@@ -39,7 +39,7 @@ const Slider = () => {
   const prevSlide = () => {
     setIndex(index === 0 ? slides.length - 1 : index - 1);
   };
-
+  
   const nextSlide = () => {
     setIndex(index === slides.length - 1 ? 0 : index + 1);
   };

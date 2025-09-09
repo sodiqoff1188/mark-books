@@ -3,6 +3,7 @@ import React from 'react'
 import { FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa'
 import './Heder.css' // Agar style fayling bo‘lsa
 
+
 const Header = () => {
   return (
     <div>

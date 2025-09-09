@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import './recomended.css';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { db } from '../firebase'; // Fayl manzilini tekshiring
+import { db } from '../../firebase'; // Fayl manzilini tekshiring
 import { collection, getDocs } from 'firebase/firestore';
 
 const RecommendedProducts = () => {

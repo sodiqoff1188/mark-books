@@ -22,6 +22,7 @@ const renderRatingStars1 = (rating1) => {
   return stars1;
 };
 
+
 const SectionSlider1 = () => {
   const [products1, setProducts1] = useState([]);
   const [loading1, setLoading1] = useState(true);

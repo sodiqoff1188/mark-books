@@ -16,3 +16,4 @@ const StatCard = ({ icon, number, label }) => {
 };
 
 export default StatCard;
+

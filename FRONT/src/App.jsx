@@ -1,11 +1,11 @@
 import React from 'react'
 import SimpleSlider from './UIcomponents/secgtion1/SectionSlider'
 import Productmodal from './UIcomponents/Section2/Section2'
-import Header from './heder/Heder'
-import Navbar1 from './heder1/Heder1'
-import RecommendedProducts from './Recomended/Recomended'
-import HappyCustomers from './Happy Customers/Happ'
+import Navbar1 from './UIcomponents/heder1/Heder1'
+import RecommendedProducts from './UIcomponents/Recomended/Recomended'
+import HappyCustomers from './UIcomponents/Happy Customers/Happ'
 import Slider from 'react-slick'
+import Header from './UIcomponents/heder/Heder'
                           
 const App = () => {
   return (
