@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "./toke.css";
 
-import img1 from "../../assets/image.png";
-import img2 from "../../assets/image copy.png";
-import img3 from "../../assets/image copy 2.png";
+import img1 from "../../assets/img01.png";
+import img2 from "../../assets/img01.png";
+import img3 from "../../assets/img01.png";
 
 const slides = [
   {
@@ -39,7 +39,7 @@ const Slider = () => {
   const prevSlide = () => {
     setIndex(index === 0 ? slides.length - 1 : index - 1);
   };
-  
+
   const nextSlide = () => {
     setIndex(index === slides.length - 1 ? 0 : index + 1);
   };
