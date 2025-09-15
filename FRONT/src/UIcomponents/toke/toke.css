@@ -1,135 +1,204 @@
-/* === SLIDER CONTAINER === */
-.slider-container {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    overflow: hidden;
-    background: #ffffff;     /* 🔥 oq fon */
-    display: grid;
-    place-items: center;
-  }
-  
-  /* === SLIDE === */
-.slide {
-    display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
+/* src/components/toke.css */
+
+.product-slider-wrapper {
+    max-width: 1400px;
+    margin: 40px auto;
+    height: 90vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Har bir slider itemi uchun konteyner (bu sizning .product-card bo'ladi) */
+.single-product-slide {
+    padding: 20px;
+    /* Slider ichidagi bo'sh joy */
+    display: flex !important;
+    /* Slider itemlari odatda block bo'ladi, flex qilish kerak */
     align-items: center;
-    gap: 5vw;
-    width: 90%;
-    max-width: 1300px;
-    color: #383838;   /* umumiy text rangi */
-  }
-  
-  /* === TEXT === */
-  .text h2 {
-    font-size: clamp(36px, 6vw, 64px);
+    justify-content: space-around;
+    gap: 1rem;
+    /* Detallar va rasm orasidagi masofa */
+    border-radius: 15px;
+    min-height: 400px;
+    /* Minimal balandlik */
+    height: 90vh;
+}
+
+/* Rasmdagi chap qism: Ma'lumotlar joylashgan joy */
+.slide-details-section {
+    flex: 0;
+    /* Mavjud bo'sh joyni egallaydi */
+    text-align: left;
+    padding: 20px;
+}
+
+.slide-title {
+    font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.1;
-    color: #383838;   /* sarlavha */
-    margin-bottom: 16px;
-  }
-  
-  .text p {
-    font-size: 18px;
+    color: #2c3e50;
+    /* To'q ko'k rang */
+    margin-bottom: 1rem;
+}
 
-    color: #383838;   /* matn */
-    margin-bottom: 24px;
-    line-height: 1.6;
-  }
-  
-  .price {
-    display: flex;         /* flex qilib qo‘yish kerak */
-    align-items: center;
-    gap: 30px;             /* narxlar orasidagi masofa */
-  }
-  
-  .price span:first-child {
-    font-size: 28px;
-    font-weight: 700;
-    color: #383838;        /* yangi narx */
-  }
-  
-  .price .old {
-    font-size: 20px;
-    text-decoration: line-through;
-    color: #999;           /* eski narx kulrang */
-  }
-  
-  /* === BUTTON === */
-  .buy-btn {
-    padding: 15px 56px;
-    border: 3px solid orange;   /* faqat shu qoladi */
-    border-radius: 5px;
-          /* tugma foni */
-    font-weight: 700;
-    font-size: 16px;
-    color:#f4a81ce1;                /* oq text */
-    cursor: pointer;
-    transition: transform .2s ease, box-shadow .3s ease, background .3s ease;
-  }
-  
-
-  
-  .buy-btn:hover {
-    transform: scale(1.05);
-    color: #ffffff;
-    background: #f4a81ce1;      /* hover effekti */
-    box-shadow: 0 0 12px rgba(0,0,0,.2);
-  }
-  
-  
-  .image {
+.slide-price-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: baseline;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
 
-  }
-  
-  .image img {
-    width: 800px;          /* qat’iy eni */
-    height: 800px;
-    object-fit: cover;  
-    border-radius: 50%;         /* qat’iy balandligi */
-    /* 🔥 joyni to‘ldiradi, kerak bo‘lsa kesadi */
-    transition: transform 0.3s ease;
-  }
-  
+.slide-current-price {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #e67e22;
+    /* To'q sariq */
+}
 
+.slide-original-price {
+    font-size: 1.6rem;
+    color: #95a5a6;
+    /* Kulrang */
+    text-decoration: line-through;
+}
 
-  
-  @keyframes zoomIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  
-  /* === ARROWS === */
-  .arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.05);
-    color: #111;
-    border: none;
-    font-size: 22px;
-    padding: 12px;
-    border-radius: 50%;
+.slide-details-button {
+    border: 2px solid #e67e22;
+    color: #e67e22;
+    padding: 12px 28px;
+    border-radius: 8px;
+    margin-top: 2.5rem;
     cursor: pointer;
-    transition: background .3s ease, transform .2s ease;
-  }
-  .arrow:hover {
-    background: rgba(0,0,0,0.2);
-    transform: scale(1.1);
-  }
-  .arrow.left { left: 20px; }
-  .arrow.right { right: 20px; }
-  
-  /* === RESPONSIVE === */
-  @media (max-width: 900px) {
-    .slide { 
-      grid-template-columns: 1fr; 
-      text-align: center; 
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.slide-details-button:hover {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+/* Rasmdagi o'ng qism: Rasm joylashgan joy */
+.slide-image-section {
+    width: 650px;
+    /* Rasm qismining eni */
+    height: 650px;
+    /* Rasm qismining balandligi */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-image-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Dumaloq shakl */
+    overflow: hidden;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-image {
+    width: 120%;
+    /* Rasmni biroz kattalashtirish */
+    height: 120%;
+    /* Rasmni biroz kattalashtirish */
+    object-fit: cover;
+    object-position: center;
+}
+
+/* React Slick o'qlari va nuqtalari uchun stillar */
+.slick-prev:before,
+.slick-next:before {
+    color: #2c3e50 !important;
+    /* O'qlar rangi */
+    font-size: 30px !important;
+}
+
+.slick-dots li button:before {
+    color: #e67e22 !important;
+    /* Nuqta indikatorlar rangi */
+    font-size: 10px !important;
+}
+
+.slick-dots li.slick-active button:before {
+    color: #2c3e50 !important;
+    /* Aktiv nuqta indikator rangi */
+}
+
+/* src/components/toke.css */
+
+/* ... Mavjud stillaringiz shu yerda ... */
+
+/* Tugmalarning umumiy stillari */
+.slick-prev,
+.slick-next {
+    width: 50px !important;
+    height:50px !important;
+
+    background-color: #ff6600 !important;
+    /* To'q sariq fon rangi */
+    border-radius: 8px !important;
+    /* Tugma chetlarini yumaloqlash */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 10;
+    
+}
+
+/* Sichqoncha ustiga kelganda rangini o'zgartirish */
+.slick-prev:hover,
+.slick-next:hover {
+    background-color: #e65c00 !important;
+}
+
+/* Tugmalarning joylashuvi */
+.slick-prev {
+    left: -58px !important;
+}
+
+.slick-next {
+    right: -56px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+    font-family: 'Font Awesome';
+    font-size: 50px !important;
+    color: white !important;
+}
+
+.slick-prev:before {
+    content: '\2039' !important;
+    font-weight: bold;
+}
+
+.slick-next:before {
+    content: '\203A' !important;
+    font-weight: bold;
+}
+
+
+
+
+/* Responsivlik (ixtiyoriy, lekin yaxshi amaliyot) */
+@media (max-width: 768px) {
+    .single-product-slide {
+        flex-direction: column;
+        /* Mobil qurilmalarda ustma-ust qo'yish */
+        gap: 2rem;
     }
-    .text { order: 2; }
-    .image { order: 1; }
-  }
-  
+
+    .slide-title {
+        font-size: 2.5rem;
+    }
+
+    .slide-image-section {
+        width: 250px;
+        height: 250px;
+    }
+}

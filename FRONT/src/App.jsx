@@ -14,8 +14,8 @@ const App = () => {
       <Navbar1/>
       <Slider/>
       <SimpleSlider/>
-      <RecommendedProducts/>
       <Productmodal/>
+      <RecommendedProducts/>
       <HappyCustomers/>
     </div>
   )

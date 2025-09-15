@@ -1,75 +1,89 @@
-import React, { useState } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import "./toke.css";
+import React, { useState, useEffect } from 'react';
+import { db } from '../../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import Slider from "react-slick"; // Slider komponentini import qilish
+import './toke.css'; // CSS faylini import qildik
 
-import img1 from "../../assets/img01.png";
-import img2 from "../../assets/img01.png";
-import img3 from "../../assets/img01.png";
+function ProductList() {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const slides = [
-  {
-    title: "TAKE OUT TANGO",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.",
-    price: "$40.00",
-    oldPrice: "$50.00",
-    img: img1,
-  },
-  {
-    title: "HEAVY LIFT",
-    desc: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
-    price: "$60.00",
-    oldPrice: "$70.00",
-    img: img2,
-  },
-  {
-    title: "MODERN STYLE",
-    desc: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum.",
-    price: "$80.00",
-    oldPrice: "$100.00",
-    img: img3,
-  },
-];
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const productsCollectionRef = collection(db, 'products');
+        const querySnapshot = await getDocs(productsCollectionRef);
+        
+        const loadedProducts = [];
+        querySnapshot.forEach((doc) => {
+          loadedProducts.push({
+            id: doc.id,
+            ...doc.data()
+          });
+        });
 
-// Ranglar massivini tuzamiz
-const colors = ["#ff4c29", "#2a9d8f", "#1d3557", "#f4a261", "#6a4c93"];
+        setProducts(loadedProducts);
+      } catch (error) {
+        console.error("Ma'lumotlarni o'qishda xatolik:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    getProducts();
+    
+  }, []);
 
-const Slider = () => {
-  const [index, setIndex] = useState(0);
+  if (loading) {
+    return <div className="loading-state">Ma'lumotlar yuklanmoqda...</div>;
+  }
 
-  const prevSlide = () => {
-    setIndex(index === 0 ? slides.length - 1 : index - 1);
-  };
-
-  const nextSlide = () => {
-    setIndex(index === slides.length - 1 ? 0 : index + 1);
+  // Slider uchun sozlamalar (faqat bitta mahsulot ko'rsatilgan dizaynga moslab)
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1, // Har bir slayd faqat bitta mahsulotni ko'rsatadi
+    slidesToScroll: 1,
+    arrows: true, // O'qlarni ko'rsatish
+    autoplay: true, // Avtomatik o'tish
+    autoplaySpeed: 3000, // 3 soniyadan keyin o'tish
   };
 
   return (
-    <div className="slider-container">
-      <button className="arrow left" onClick={prevSlide}>
-        <FaChevronLeft />
-      </button>
-      <button className="arrow right" onClick={nextSlide}>
-        <FaChevronRight />
-      </button>
+    <div className="product-slider-wrapper"> {/* Umumiy o'rab turuvchi div */}
+      {products.length > 0 ? (
+        <Slider {...settings}>
+          {products.map(product => (
+            <div key={product.id} className="single-product-slide"> {/* Har bir slayd uchun karta */}
+              {/* Chap qism: Detallar */}
+              <div className="slide-details-section">
+                <h1 className="slide-title">{product.name}</h1> {/* Buni product.name bilan almashtirishingiz mumkin */}
+                <div className="slide-price-wrapper">
+                  <span className="slide-current-price">${product.newPrice}</span>
+                  {product.originalPrice && <span className="slide-original-price">${product.originalPrice}</span>}
+                </div>
+                <button className="slide-details-button">Tafsilotlarni qarang</button>
+              </div>
 
-      <div className="slide">
-        <div className="text" style={{ color: colors[index % colors.length] }}>
-          <h2>{slides[index].title}</h2>
-          <p>{slides[index].desc}</p>
-          <div className="price">
-            {slides[index].price}
-            <span className="old">{slides[index].oldPrice}</span>
-          </div>
-          <button className="buy-btn">Buy Now</button>
-        </div>
-
-        <div className="image">
-          <img src={slides[index].img} alt={slides[index].title} />
-        </div>
-      </div>
+              {/* O'ng qism: Rasm */}
+              <div className="slide-image-section">
+                <div className="slide-image-circle">
+                  <img 
+                    src={product.imageUrl} 
+                    alt={product.name} 
+                    className="slide-image"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      ) : (
+        <p className="no-products">Hozircha mahsulotlar yo'q.</p>
+      )}
     </div>
   );
-};
+}
 
-export default Slider;
+export default ProductList;
