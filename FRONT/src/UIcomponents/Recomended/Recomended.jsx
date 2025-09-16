@@ -7,6 +7,7 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { db } from '../../firebase'; // Fayl manzilini tekshiring
 import { collection, getDocs } from 'firebase/firestore';
+import { GrView } from "react-icons/gr";
 
 const RecommendedProducts = () => {
   const [products, setProducts] = useState([]);
@@ -71,27 +72,34 @@ const RecommendedProducts = () => {
         <div className="divider"></div>
 
         {products.length > 0 ? (
-          <Slider {...settings} ref={sliderRef} className="products-container product-slider">
+          <Slider {...settings} ref={sliderRef} className="products-container_product-slider">
             {products.map(product => (
               <div key={product.id} className="product-card-container">
-                <div className="product-card">
-                  <img src={product.img} alt={product.title} className="product-image" />
-                  <h3 className="product-title">{product.title}</h3>
-                  {product.subtitle && <p className="product-subtitle">{product.subtitle}</p>}
+                <div className="Product-card">
+                  <img src={product.imageUrl} alt={product.name} className="product-image" />
+                  <h3 className="product-title">{product.name}</h3>
+                  {product.category && <p className="product-subtitle">{product.category}</p>}
                   <div className="product-price">
                     {product.originalPrice ? (
                       <>
-                        <span className="current-price">${product.price}</span>
-                        <span className="original-price">${product.originalPrice}</span>
+                        <span className="current-price">${product.oldPrice}</span>
+                        <span className="original-price">${product.newPrice}</span>
                       </>
                     ) : (
-                      <span className="current-price">${product.price}</span>
+                      <span className="current-price">${product.newPrice}</span>
                     )}
                   </div>
-                  <button className="add-to-cart-btn">
-                    <AiOutlineShoppingCart className="cart-icon" size={20} />
-                    Savatga qo'shish
-                  </button>
+                  <div className="Recomendet-buttons-flex">
+                    <button className="add-to-cart-btn">
+                      <AiOutlineShoppingCart className="cart-icon" size={20} />
+                      Savatga qo'shish
+                    </button>
+
+                    <button className="add-to-cart-btn1">
+                      <GrView className="cart-icon" size={20} />
+                      Savatga qo'shish
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}
