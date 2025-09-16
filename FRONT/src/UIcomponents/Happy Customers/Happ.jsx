@@ -8,10 +8,12 @@ import './Happy Customers.css';
 
 const HappyCustomers = () => {
   return (
-    <div className="stats-wrapper">
-      <StatCard icon={<IoMdContacts />} number="10K+" label="Happy Customers" />
-      <StatCard icon={<FaCar />} number="500+" label="Cars Sold" />
-      <StatCard icon={<GiRaceCar />} number="120+" label="Race Drivers" />
+    <div className='Stats-Wrappers'>
+      <div className="stats-wrapper">
+        <StatCard icon={<IoMdContacts />} number="10K+" label="Happy Customers" />
+        <StatCard icon={<FaCar />} number="500+" label="Cars Sold" />
+        <StatCard icon={<GiRaceCar />} number="120+" label="Race Drivers" />
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@
     --primary-color: #F3794D;    /* Asosiy to'q sariq rang */
     --text-dark-blue: #0A2351;  /* To'q ko'k matn rangi */
     --text-gray: #555;          /* Kulrang matn rangi */
-    --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* --card-hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
   }
   
   /* Universal qoida: Padding va border elementning umumiy o'lchamiga ta'sir qilmaydi.
@@ -20,10 +20,25 @@
 .stats-wrapper {
     display: flex;
     justify-content: center;   /* markazga tekislash */
-    align-items: stretch;
-    gap: 30px;                 /* kartalar orasidagi bo‘shliq */
+    align-items: center;
+    gap: 120px;                 /* kartalar orasidagi bo‘shliq */
     flex-wrap: wrap;           /* kichik ekranlarda pastga tushadi */
-    margin-top: 40px;
+    height: 40vh;
+    width: 96%;
+    background-color: #e8e7e7;
+    border-bottom-right-radius: 150px;
+    border-top-left-radius: 150px;
+    outline: 2px solid darkblue;
+    outline-offset: 10px;
+  }
+
+  .Stats-Wrappers{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
   
   

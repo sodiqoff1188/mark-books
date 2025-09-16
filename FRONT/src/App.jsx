@@ -6,6 +6,7 @@ import RecommendedProducts from './UIcomponents/Recomended/Recomended'
 import HappyCustomers from './UIcomponents/Happy Customers/Happ'
 import Header from './UIcomponents/heder/Heder'
 import Slider from './UIcomponents/toke/Toke'
+import FoteerComp from './UIcomponents/Footer-comp/Footer-comp'
                           
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Productmodal/>
       <RecommendedProducts/>
       <HappyCustomers/>
+      <FoteerComp/>
     </div>
   )
 }

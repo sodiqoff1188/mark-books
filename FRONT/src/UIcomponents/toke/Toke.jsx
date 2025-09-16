@@ -35,7 +35,7 @@ function ProductList() {
   }, []);
 
   if (loading) {
-    return <div className="loading-state">Ma'lumotlar yuklanmoqda...</div>;
+    return <div className="loading-state"></div>;
   }
 
   // Slider uchun sozlamalar (faqat bitta mahsulot ko'rsatilgan dizaynga moslab)
