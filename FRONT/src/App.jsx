@@ -16,6 +16,7 @@ const App = () => {
       <Slider/>
       <SimpleSlider/>
       <Productmodal/>
+      <Recommend
       <RecommendedProducts/>
       <HappyCustomers/>
       <FoteerComp/>

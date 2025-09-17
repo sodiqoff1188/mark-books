@@ -13,7 +13,7 @@ function ProductList() {
       try {
         const productsCollectionRef = collection(db, 'products');
         const querySnapshot = await getDocs(productsCollectionRef);
-        
+
         const loadedProducts = [];
         querySnapshot.forEach((doc) => {
           loadedProducts.push({
@@ -29,9 +29,9 @@ function ProductList() {
         setLoading(false);
       }
     };
-    
+
     getProducts();
-    
+
   }, []);
 
   if (loading) {
@@ -69,9 +69,9 @@ function ProductList() {
               {/* O'ng qism: Rasm */}
               <div className="slide-image-section">
                 <div className="slide-image-circle">
-                  <img 
-                    src={product.imageUrl} 
-                    alt={product.name} 
+                  <img
+                    src={product.imageUrl}
+                    alt={product.name}
                     className="slide-image"
                   />
                 </div>
