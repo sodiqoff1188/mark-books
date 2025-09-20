@@ -1,0 +1,154 @@
+/* src/pages/Details/Details.css */
+
+.details-page-container {
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+}
+
+.details-product-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
+}
+
+.details-image-wrapper {
+  flex: 1;
+  max-width: 50%;
+}
+
+.details-product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details-info-container {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.details-product-name {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.details-product-category {
+  font-size: 18px;
+  color: #7f8c8d;
+  margin-bottom: 15px;
+}
+
+.details-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  color: gold;
+}
+
+.details-rating svg {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.details-rating span {
+  font-size: 16px;
+  color: #7f8c8d;
+  margin-left: 10px;
+}
+
+.details-product-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.details-prices {
+  display: flex;
+  align-items: baseline;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.details-old-price {
+  font-size: 24px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.details-new-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.details-discount {
+  background-color: #e74c3c;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.details-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.details-add-to-cart,
+.details-buy-now {
+  flex: 1;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.details-add-to-cart {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+.details-add-to-cart:hover {
+  background-color: #e68a00;
+}
+
+.details-buy-now {
+  background-color: #3498db;
+  color: #fff;
+}
+
+.details-buy-now:hover {
+  background-color: #2980b9;
+}
+
+/* Responsive dizayn */
+@media (max-width: 768px) {
+  .details-product-card {
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .details-image-wrapper {
+    max-width: 100%;
+  }
+
+  .details-info-container {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,175 @@
+/* RecommendedProducts.css */
+.recommended-section {
+  /* margin: 0 auto; */
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  height: 90vh;
+  padding: 30px 20px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.divider {
+  height: 1px;
+  background-color: rgb(0, 0, 73);
+  margin: 30px 0;
+}
+
+
+.Product-card {
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  width: auto;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+  box-shadow: 0px 2px 4px rgb(0, 0, 73, 0.2);
+  margin: 50px 0;
+}
+
+.Product-card:hover {
+  cursor: pointer;
+  
+}
+
+
+
+/* === Rasm uchun === */
+.product-image {
+  /* width: 100%; */
+  height: 260px;
+  /* barqaror balandlik */
+  object-fit: cover;
+  /* rasmni siqmaydi, to‘g‘ri ko‘rsatadi */
+  margin-bottom: 15px;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+}
+
+
+.product-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.product-subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.product-price {
+  margin-bottom: 20px;
+}
+
+.current-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #e53935;
+  margin-right: 8px;
+}
+
+.original-price {
+  font-size: 16px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.add-to-cart-btn {
+  background-color: rgb(243, 77, 16);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+
+.add-to-cart-btn:hover {
+  background-color: rgb(235, 164, 138);
+  color: rgb(1, 1, 77);
+  border: 3px solid rgb(1, 1, 76);
+  padding: 8px 23px;
+}
+
+
+
+/* Icon uchun animatsiya */
+.cart-icon {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Hover bo‘lganda yuqoridan tushadi */
+.add-to-cart-btn:hover .cart-icon {
+  animation: dropDown 0.6s ease forwards;
+}
+
+.add-to-cart-btn1:hover .cart-icon {
+  animation: dropDown 0.6s ease forwards;
+}
+
+@keyframes dropDown {
+  0% {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  60% {
+    transform: translateY(5px);
+    opacity: 1;
+  }
+
+  80% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .products-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  .product-image {
+    height: 180px;
+    /* kichik ekranda moslashadi */
+  }
+}
