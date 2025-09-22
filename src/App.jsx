@@ -8,6 +8,7 @@ import Header from './UIcomponents/heder/Heder'
 import Slider from './UIcomponents/toke/Toke'
 import FoteerComp from './UIcomponents/Footer-comp/Footer-comp'
 import Recommender from './UIcomponents/Recomendatsiya/Recomender'
+import Comments from './UIcomponents/Comments/Comments'
                           
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
       <SimpleSlider/>
       <Productmodal/>
       <RecommendedProducts/>
-      
+      <Comments/>
 
 
 
