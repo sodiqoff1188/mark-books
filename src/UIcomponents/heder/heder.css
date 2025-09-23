@@ -27,6 +27,14 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.header-logo-book{
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .heder h2 {
   font-size: 24px;
   font-weight: bold;

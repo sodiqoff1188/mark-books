@@ -1,6 +1,8 @@
 
 import React from 'react'
 import { FaSearch, FaHeart, FaShoppingCart } from 'react-icons/fa'
+import { GiSpellBook } from "react-icons/gi";
+
 import './Heder.css' // Agar style fayling bo‘lsa
 
 
@@ -9,10 +11,13 @@ const Header = () => {
     <div>
       <header className="header">
         <div className="hader">
-          <h2>
-            <span>Book</span>land
-          </h2>
-          <p>Book Store Website</p>
+          <div className="header-logo-book">
+            <GiSpellBook />
+            <div className="logo-text">
+              <h2>Bookland</h2>
+              <p>Book Store Website</p>
+            </div>
+          </div>
         </div>
 
         {/* Search bar */}
