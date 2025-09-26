@@ -33,6 +33,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 30px;
+}
+
+.logo-text span
+{
+  color: #fa0000;
+}
+
+.logo-book{
+  font-size: 60px;
+  color: #fa0000;
 }
 
 .heder h2 {

@@ -12,10 +12,10 @@ const Header = () => {
       <header className="header">
         <div className="hader">
           <div className="header-logo-book">
-            <GiSpellBook />
+            <GiSpellBook  className='logo-book'/>
             <div className="logo-text">
-              <h2>Bookland</h2>
-              <p>Book Store Website</p>
+              <h2><span>Book</span>land</h2>
+              <p><span>Book</span> Store Website</p>
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@ import { FaChevronLeft, FaChevronRight, FaStar, FaRegStar } from "react-icons/fa
 // Reytingni ikonalar bilan ko'rsatish funksiyasi
 const renderRatingStars = (rating) => {
   const stars = [];
-  const fullStars = Math.round(rating);
+  const fullStars = Math.round(rating); 
   for (let i = 0; i < 5; i++) {
     if (i < fullStars) {
       stars.push(<FaStar key={i} />);
@@ -23,7 +23,6 @@ const renderRatingStars = (rating) => {
 
 const SectionSlider = () => {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
   const sliderRef = useRef(null);
 
   useEffect(() => {
@@ -33,10 +32,8 @@ const SectionSlider = () => {
         const data = await getDocs(productsCollectionRef);
         const productsData = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
         setProducts(productsData);
-        setLoading(false);
       } catch (error) {
         console.error("Mahsulotlarni olishda xato:", error);
-        setLoading(false);
       }
     };
     getProducts();
@@ -59,61 +56,53 @@ const SectionSlider = () => {
     ]
   };
 
-  // Butun komponentning return qismi bitta mantiqqa asoslanadi
+  // Agar mahsulotlar bo'lmasa, butun komponentdan hech narsa qaytmasligi uchun shart qo'shamiz.
+  if (products.length === 0) {
+      return null; // Yoki sizning UI talabingizga ko'ra <div className="slider-wrapper" /> bo'lishi mumkin
+  }
+
+  // Endi products.length har doim 0 dan katta, shuning uchun shart yo'q.
   return (
     <div className="slider-wrapper">
-      {loading ? (
-        // Agar loading true bo'lsa, faqat loader ko'rinadi
-        <div className="slider-loading">
-          <div className="loader"></div>
-          <p>Mahsulotlar yuklanmoqda...</p>
+      <div className="slider-header-container">
+        <h2 className="slider-header-title">Kitoblar sotuvda</h2>
+        <div className="slider-controls">
+          <button className="slider-arrow-button prev-arrow" onClick={() => sliderRef.current.slickPrev()}>
+            <FaChevronLeft />
+          </button>
+          <button className="slider-arrow-button next-arrow" onClick={() => sliderRef.current.slickNext()}>
+            <FaChevronRight />
+          </button>
         </div>
-      ) : (
-        // Aks holda, butun kontent ko'rinadi
-        <>
-          <div className="slider-header-container">
-            <h2 className="slider-header-title">Kitoblar sotuvda</h2>
-            <div className="slider-controls">
-              <button className="slider-arrow-button prev-arrow" onClick={() => sliderRef.current.slickPrev()}>
-                <FaChevronLeft />
-              </button>
-              <button className="slider-arrow-button next-arrow" onClick={() => sliderRef.current.slickNext()}>
-                <FaChevronRight />
-              </button>
-            </div>
-          </div>
-          {products.length > 0 ? (
-            <Slider {...settings} ref={sliderRef} className="product-slider">
-              {products.map(product => (
-                <div key={product.id} className="product-card-container">
-                  <div className="product-card">
-                    <div className="card-image-container">
-                      <img src={product.imageUrl} alt={product.name} className="product-image" />
-                      <span className="product-discount">{product.discount}% OFF</span>
-                    </div>
-                    <div className="card-content">
-                      <h3 className="product-name">{product.name}</h3>
-                      <p className="product-category">{product.category}</p>
-                      <div className="product-rating-and-prices">
-                        <div className="product-rating">
-                          {renderRatingStars(product.rating)}
-                          <span>({product.rating})</span>
-                        </div>
-                        <div className="product-prices">
-                          <span className="old-price">${product.oldPrice}</span>
-                          <span className="new-price">${product.newPrice}</span>
-                        </div>
-                      </div>
-                    </div>
+      </div>
+      
+      {/* Mahsulotlar mavjudligini tekshirish endi funksiyaning boshida amalga oshiriladi */}
+      <Slider {...settings} ref={sliderRef} className="product-slider">
+        {products.map(product => (
+          <div key={product.id} className="product-card-container">
+            <div className="product-card">
+              <div className="card-image-container">
+                <img src={product.imageUrl} alt={product.name} className="product-image" />
+                <span className="product-discount">{product.discount}% OFF</span>
+              </div>
+              <div className="card-content">
+                <h3 className="product-name">{product.name}</h3>
+                <p className="product-category">{product.category}</p>
+                <div className="product-rating-and-prices">
+                  <div className="product-rating">
+                    {renderRatingStars(product.rating)}
+                    <span>({product.rating})</span>
+                  </div>
+                  <div className="product-prices">
+                    <span className="old-price">${product.oldPrice}</span>
+                    <span className="new-price">${product.newPrice}</span>
                   </div>
                 </div>
-              ))}
-            </Slider>
-          ) : (
-            <p className="no-products">Hozircha mahsulotlar mavjud emas.</p>
-          )}
-        </>
-      )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </Slider>
     </div>
   );
 };
